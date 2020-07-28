@@ -1,0 +1,11 @@
+.table {
+    width: 100%;
+}
+
+.action-panel {
+    width: 100%;
+    display: flex;
+    &.end {
+        justify-content: flex-end;
+    }
+}

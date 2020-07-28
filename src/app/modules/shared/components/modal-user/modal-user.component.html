@@ -1,0 +1,40 @@
+<div>
+  <h3>Add User</h3>
+  <form class="user-form" [formGroup]="userForm">
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput autocomplete="off" type="text" formControlName="firstName" />
+      <mat-error *ngIf="userForm.get('firstName').invalid">{{getErrorMessage('firstName')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput autocomplete="off" type="text" formControlName="lastName" />
+      <mat-error *ngIf="userForm.get('lastName').invalid">{{getErrorMessage('lastName')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput autocomplete="off" type="text" formControlName="email" />
+      <mat-error *ngIf="userForm.get('email').invalid">{{getErrorMessage('email')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option [value]="null">
+          None
+        </mat-option>
+        <mat-option *ngFor="let singleRole of roles" [value]="singleRole._id">
+            {{singleRole.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="userForm.get('role').invalid">{{getErrorMessage('role')}}</mat-error>
+    </mat-form-field>
+
+  </form>
+  <div class="actions">
+    <button mat-raised-button (click)="cancel()">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="userForm.invalid" (click)="save()">Save</button>
+  </div>
+</div>

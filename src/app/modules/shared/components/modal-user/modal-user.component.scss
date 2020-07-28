@@ -1,0 +1,15 @@
+.user-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  
+  button {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
